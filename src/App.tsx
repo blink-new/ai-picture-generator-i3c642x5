@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { blink } from '@/blink/client'
-import ImageGenerator from '@/components/ImageGenerator'
+import VideoGenerator from '@/components/VideoGenerator'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Loader2, LogIn } from 'lucide-react'
+import { Toaster } from 'react-hot-toast'
 
 interface User {
   id: string
@@ -45,9 +46,9 @@ function App() {
           <CardContent className="pt-6">
             <div className="text-center space-y-6">
               <div>
-                <h1 className="text-2xl font-bold">Welcome to AI Picture Generator</h1>
+                <h1 className="text-2xl font-bold">Welcome to AI Video Generator</h1>
                 <p className="text-muted-foreground mt-2">
-                  Sign in to start creating amazing AI-generated images
+                  Sign in to start creating amazing AI-generated videos
                 </p>
               </div>
               <Button onClick={handleLogin} className="w-full" size="lg">
@@ -61,7 +62,12 @@ function App() {
     )
   }
 
-  return <ImageGenerator />
+  return (
+    <>
+      <VideoGenerator />
+      <Toaster position="top-right" />
+    </>
+  )
 }
 
 export default App
